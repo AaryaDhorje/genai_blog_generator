@@ -44,3 +44,11 @@ def generate_image(prompt, output_path="generated_image.webp"):
     except Exception as e:
         logging.exception("Unexpected error occurred while generating image.")
         return None
+
+def get_image_url(prompt):
+    image_path = generate_image(prompt)
+    if image_path:
+        return image_path
+    else:
+        logging.error("Failed to generate image.")
+        return None
